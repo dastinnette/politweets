@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root "welcome#show"
+  root 'welcome#index'
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-
+  resources :tweets, only: [:index, :show]
+  resources :users, only: [:show]
   
+  get '/auth/twitter/callback', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
