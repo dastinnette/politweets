@@ -9,6 +9,7 @@ gem 'figaro'
 gem 'pg'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
