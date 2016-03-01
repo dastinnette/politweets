@@ -39,6 +39,25 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  config.before(:each) do
+    OmniAuth.config.mock_auth[:twitter] = nil
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      extra: {
+        raw_info: {
+          user_id: ENV["TWITTER_UID"],
+          name: "David",
+          screen_name: "dastinnette",
+        }
+      },
+      credentials: {
+        token: ENV["TWITTER_TOKEN"],
+        secret: ENV["TWITTER_TOKEN_SECRET"]
+      }
+    })
+  end
 end
 
 Shoulda::Matchers.configure do |config|
