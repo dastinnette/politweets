@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
-  def show
+  def index
   end
 
 end
