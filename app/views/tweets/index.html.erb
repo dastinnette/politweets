@@ -1,6 +1,2 @@
-<% if current_user %>
   <p>hello, <%= current_user.name %></p>
-  <%= link_to "logout", "/logout", method: "delete" %>
-<% else %>
-  <%= link_to "login", login_path %>
-<% end %>
+  <%= link_to "Logout", "/logout", method: "delete" %>

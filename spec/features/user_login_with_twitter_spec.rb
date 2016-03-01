@@ -9,7 +9,7 @@ RSpec.feature "user logs in", vcr: true do
     click_on "Login with Twitter"
     expect(current_path).to eq(tweets_path)
     expect(page).to have_content("David")
-    expect(page).to have_link("logout")
+    expect(page).to have_link("Logout")
   end
 
 end
