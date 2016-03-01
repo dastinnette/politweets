@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: politweets_production
-  username: politweets
-  password: <%= ENV['POLITWEETS_DATABASE_PASSWORD'] %>
