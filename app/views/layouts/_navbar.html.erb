@@ -6,7 +6,7 @@
         <%= link_to "States" %>
       </li>
       <li>
-        <%= link_to "Your profile" %>
+        <%= link_to "#{current_user.name}" %>
       </li>
       <li>
         <%= link_to "Logout", "/logout", method: "delete" %>
