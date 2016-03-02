@@ -30,5 +30,7 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
+  gem 'simplecov', require: false, :group => :test
+  gem 'webmock'
+  gem 'vcr'
 end
