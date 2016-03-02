@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :hashtag do
+    name "MyString"
+  end
   factory :tweet do
     tweet_id "MyString"
     location "MyString"

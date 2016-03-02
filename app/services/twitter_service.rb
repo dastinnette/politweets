@@ -36,10 +36,4 @@ class TwitterService
     locations
   end
 
-  def trump_output
-    trump_tweets.map do |tweet|
-      tweet.user.location
-    end
-  end
-
 end
