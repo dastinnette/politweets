@@ -12,7 +12,7 @@ RSpec.feature "user logs out", vcr: true do
 
     click_link "Logout"
     expect(current_path).to eq(root_path)
-    expect(page).to have_content("Welcome to PoliTweets")
+    expect(page).to have_content("POLITWEETS")
   end
 
 end

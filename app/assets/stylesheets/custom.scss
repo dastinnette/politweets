@@ -1,14 +1,26 @@
 /* WELCOME PAGE */
 
-#homepage {
-  background: url("lincoln") no-repeat center center fixed;
+.homepage {
+  background: url("politics") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.homepage-title {
+  color: #283593;
+  font-family: Roboto;
+  font-weight: bold;
+}
+
 .homepage-text {
+  color: black;
+  font-family: Roboto;
+  font-weight: bold;
+}
+
+.homepage-button {
   color: white;
   font-family: Roboto;
 }

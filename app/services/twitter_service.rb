@@ -10,8 +10,34 @@ class TwitterService
     end
   end
 
-  def home_timeline
-    client.home_timeline
+  def bernie_tweets
+    tweets = client.search("to:#feelthebern",
+                           result_type: "recent")
+    locations = tweets.select do |tweet|
+      !tweet.user.location.is_a?(Twitter::NullObject)
+    end
+    locations
+  end
+
+  def bernie_output
+    bernie_tweets.map do |tweet|
+      tweet.user.location
+    end
+  end
+
+  def trump_tweets
+    tweets = client.search("to:#MakeAmericaGreatAgain",
+                           result_type: "recent")
+    locations = tweets.select do |tweet|
+      !tweet.user.location.is_a?(Twitter::NullObject)
+    end
+    locations
+  end
+
+  def trump_output
+    trump_tweets.map do |tweet|
+      tweet.user.location
+    end
   end
 
 end
