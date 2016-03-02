@@ -4,7 +4,7 @@ RSpec.describe "Twitter API", type: :request do
   attr_reader :service
 
   before do
-    @service = TwitterService.new
+    @service = TwitterService.new(user)
   end
 
   it "returns a list of tweets containing #FeelTheBern" do
