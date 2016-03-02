@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+        <th data-field="id">Twitter Handle</th>
+        <th data-field="name">Tweet</th>
+        <th data-field="price">User Location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @twitter.bernie_output.each do |tweet| %>
+      <tr>
+        <td>
+          <%= tweet[0] %>
+        </td>
+        <td>
+          <%= tweet[1] %>
+        </td>
+        <td>
+          <%= tweet[2] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
