@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :tweet do
+    tweet_id "MyString"
+    location "MyString"
+  end
   factory :user do
     name "MyString"
     screen_name "MyString"

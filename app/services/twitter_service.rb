@@ -10,6 +10,8 @@ class TwitterService
     end
   end
 
+  # Make more dynamic to allow for searches
+
   def bernie_tweets
     tweets = client.search("to:#feelthebern",
                            result_type: "recent")
@@ -17,6 +19,7 @@ class TwitterService
       !tweet.user.location.is_a?(Twitter::NullObject)
     end
     locations
+    binding.pry
   end
 
   def bernie_output

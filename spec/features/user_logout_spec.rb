@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "user logs out", vcr: true do
+RSpec.feature "user logs out", type: :request do
 
-  it "logged in user can log out to see root path" do
+  scenario "logged in user can log out to see root path" do
     visit root_path
     click_link "Login with Twitter"
 
