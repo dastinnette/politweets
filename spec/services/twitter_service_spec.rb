@@ -4,7 +4,7 @@ RSpec.describe "Twitter API", type: :request do
   attr_reader :service
 
   before do
-    @service = TwitterService.new(user)
+    @service = TwitterService.new
   end
 
   it "returns a list of tweets containing #FeelTheBern" do
@@ -12,8 +12,8 @@ RSpec.describe "Twitter API", type: :request do
       tweets      = service.bernie_tweets
       first_tweet = tweets.first
 
-      expect(tweets.count).to eq(55)
-      expect(first_tweet.screen_name).to eq("Billy Bob")
+      expect(tweets.count).to eq(529)
+      expect(first_tweet.user.screen_name).to eq("CA_Talesh")
     end
   end
 
@@ -21,8 +21,8 @@ RSpec.describe "Twitter API", type: :request do
     VCR.use_cassette("bernie_tweets") do
       tweet = service.bernie_tweets.first
 
-      expect(tweet.user.location).to eq("CO")
+      expect(tweet.user.location).to eq("Houston")
     end
   end
-  
+
 end
