@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "user logs in", vcr: true do
+RSpec.feature "user logs in" do
 
   scenario "with twitter" do
     visit root_path

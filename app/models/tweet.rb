@@ -1,13 +1,10 @@
 class Tweet < ActiveRecord::Base
-
-  def self.find_or_create_from_search
-    tweet = Tweet.find_or_create_by(:id)
-
-    tweet.tweet_id = ???.id
-    tweet.location = ???.user.location
-
-    tweet.save
-    tweet
+  belongs_to :hashtag
+  
+  def self.create_from_search(tweet)
+    t = Tweet.find_or_create_by(tweet_id: tweet.id)
+    t.location = tweet.user.location
+    t.save
   end
 
 end

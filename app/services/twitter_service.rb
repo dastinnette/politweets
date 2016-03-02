@@ -15,11 +15,10 @@ class TwitterService
   def bernie_tweets
     tweets = client.search("to:#feelthebern",
                            result_type: "recent")
-    locations = tweets.select do |tweet|
+    filtered_tweets = tweets.select do |tweet|
       !tweet.user.location.is_a?(Twitter::NullObject)
     end
-    locations
-    binding.pry
+    filtered_tweets.each { |tweet| Tweet.create_from_search(tweet) }
   end
 
   def bernie_output
