@@ -1,25 +1,23 @@
 <table>
   <thead>
     <tr>
-        <th data-field="id">Twitter Handle</th>
-        <th data-field="name">Tweet</th>
-        <th data-field="price">User Location</th>
+        <th>Berners</th>
+        <th>Trump Stumpers</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @twitter.bernie_output.each do |tweet| %>
       <tr>
         <td>
-          <%= tweet[0] %>
+          <% @twitter.bernie_output.each do |tweet| %>
+            <%= tweet %>
+          <% end %>
         </td>
         <td>
-          <%= tweet[1] %>
-        </td>
-        <td>
-          <%= tweet[2] %>
+          <% @twitter.trump_output.each do |tweet| %>
+            <%= tweet %>
+          <% end %>
         </td>
       </tr>
-    <% end %>
   </tbody>
 </table>
