@@ -3,7 +3,10 @@
     <%= link_to "politweets", tweets_path, class: "left-nav logo nav-color" %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
-        <%= link_to "Logout", "/logout", method: "delete", class: "nav-color right-nav" %>
+        <%= link_to "search by state", tweets_path, class: "nav-color" %>
+      </li>
+      <li>
+        <%= link_to "logout", "/logout", method: "delete", class: "nav-color" %>
       </li>
     </ul>
   </div>

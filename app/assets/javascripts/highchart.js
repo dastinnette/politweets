@@ -64,7 +64,7 @@ $(function () {
                     },
 
                     title: {
-                        text: 'Politweets Analysis',
+                        text: '',
                     },
 
                     legend: {

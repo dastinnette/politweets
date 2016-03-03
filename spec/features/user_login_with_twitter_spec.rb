@@ -10,7 +10,7 @@ RSpec.feature "user logs in" do
     expect(current_path).to eq(tweets_path)
     expect(page).to have_content("#FeelTheBern")
     expect(page).to have_content("#MakeAmericaGreatAgain")
-    expect(page).to have_link("Logout")
+    expect(page).to have_link("logout")
   end
 
 end
