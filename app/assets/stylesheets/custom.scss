@@ -26,10 +26,6 @@
   margin-left: 20px;
 }
 
-.right-nav {
-  margin-right: 20px;
-}
-
 .logo {
   font-size: 22px;
 }
@@ -41,14 +37,30 @@
 /* MAP PARTIAL */
 
 #container {
-    height: 600px;
-    min-width: 900px;
-    margin: 0 auto;
+  height: 650px;
+  min-width: 900px;
+  margin: 0 auto;
 }
+
 .loading {
-    margin-top: 10em;
-    text-align: center;
-    color: white;
+  margin-top: 10em;
+  text-align: center;
+  color: white;
 }
 
 /* TWEETS INDEX */
+
+.t-index-title {
+  color: #283593;
+}
+
+.t-index-text {
+  font-size: 18px;
+  color: #303f9f;
+}
+
+/* FOOTER */
+
+.footer-height {
+  height: 173px;
+}
