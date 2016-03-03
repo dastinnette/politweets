@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-RSpec.feature "user logs out", vcr: true do
+RSpec.feature "user logs out" do
 
-  it "logged in user can log out to see root path" do
+  scenario "logged in user can log out to see root path" do
     visit root_path
     click_link "Login with Twitter"
 
     expect(current_path).to eq(tweets_path)
-    expect(page).to have_content("David")
+    expect(page).to have_content("#FeelTheBern")
+    expect(page).to have_content("#MakeAmericaGreatAgain")
     expect(page).to have_link("Logout")
 
     click_link "Logout"

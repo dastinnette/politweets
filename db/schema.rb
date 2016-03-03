@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301000051) do
+ActiveRecord::Schema.define(version: 20160302235758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string   "tweet_id"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "hashtag_id"
+  end
+
+  add_index "tweets", ["hashtag_id"], name: "index_tweets_on_hashtag_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -26,4 +42,5 @@ ActiveRecord::Schema.define(version: 20160301000051) do
     t.datetime "updated_at",         null: false
   end
 
+  add_foreign_key "tweets", "hashtags"
 end
