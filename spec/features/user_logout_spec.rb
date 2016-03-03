@@ -7,7 +7,8 @@ RSpec.feature "user logs out" do
     click_link "Login with Twitter"
 
     expect(current_path).to eq(tweets_path)
-    expect(page).to have_content("David")
+    expect(page).to have_content("#FeelTheBern")
+    expect(page).to have_content("#MakeAmericaGreatAgain")
     expect(page).to have_link("Logout")
 
     click_link "Logout"

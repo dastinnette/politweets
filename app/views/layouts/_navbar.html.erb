@@ -1,13 +1,7 @@
 <nav>
   <div class="nav-wrapper grey darken-3">
-    <%= link_to "PoliTweets", tweets_path, class: "top-nav logo" %>
+    <%= link_to "politweets", tweets_path, class: "top-nav logo" %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <%= link_to "States" %>
-      </li>
-      <li>
-        <%= link_to "#{current_user.name}" %>
-      </li>
       <li>
         <%= link_to "Logout", "/logout", method: "delete" %>
       </li>
