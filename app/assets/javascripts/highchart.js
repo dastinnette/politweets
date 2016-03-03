@@ -35,11 +35,11 @@ $(function () {
                     series: [{
                         name: 'Votes',
                         data: [{
-                            name: 'Sanders',
+                            name: 'sanders',
                             color: '#303f9f',
                             y: parseInt(columns[3][row], 10)
                         }, {
-                            name: 'Trump',
+                            name: 'trump',
                             color: '#b71c1c',
                             y: parseInt(columns[4][row], 10)
                         }],
@@ -89,12 +89,12 @@ $(function () {
                             from: -100,
                             to: 0,
                             color: '#b71c1c',
-                            name: 'Trump'
+                            name: 'trump'
                         }, {
                             from: 0,
                             to: 100,
                             color: '#303f9f',
-                            name: 'Sanders'
+                            name: 'sanders'
                         }]
                     },
 
@@ -107,10 +107,10 @@ $(function () {
                             color: '#FFFFFF',
                             format: '{point.postal-code}',
                             style: {
-                                textTransform: 'uppercase'
+                                textTransform: 'lowercase'
                             }
                         },
-                        name: 'Sanders margin',
+                        name: 'sanders margin',
                         point: {
                             events: {
                                 click: pointClick
@@ -124,7 +124,7 @@ $(function () {
                         name: 'Separators',
                         type: 'mapline',
                         data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
-                        color: 'silver',
+                        color: 'white',
                         showInLegend: false,
                         enableMouseTracking: false
                     }]
