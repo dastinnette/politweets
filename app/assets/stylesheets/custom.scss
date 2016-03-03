@@ -20,18 +20,25 @@
   font-family: Roboto;
 }
 
-/* NAVBAR */
+/* TWEETS INDEX */
 
-.left-nav {
-  margin-left: 20px;
+.t-index-title {
+  color: #283593;
 }
 
-.logo {
-  font-size: 22px;
-}
-
-.nav-color {
+.t-index-text {
+  font-size: 18px;
   color: #303f9f;
+}
+
+.tab-color {
+  color: #b71c1c;
+}
+
+/* FOOTER PARTIAL */
+
+.footer-height {
+  height: 173px;
 }
 
 /* MAP PARTIAL */
@@ -48,19 +55,22 @@
   color: white;
 }
 
-/* TWEETS INDEX */
+/* TABLE PARTIAL */
 
-.t-index-title {
-  color: #283593;
-}
-
-.t-index-text {
-  font-size: 18px;
+.table-color {
   color: #303f9f;
 }
 
-/* FOOTER */
+/* NAVBAR PARTIAL */
 
-.footer-height {
-  height: 173px;
+.left-nav {
+  margin-left: 20px;
+}
+
+.logo {
+  font-size: 22px;
+}
+
+.nav-color {
+  color: #303f9f;
 }
