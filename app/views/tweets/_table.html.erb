@@ -1,17 +1,29 @@
-<table>
+<table class="highlight">
   <thead>
     <tr>
-        <th>Berners</th>
-        <th>Trump Stumpers</th>
+        <th>State</th>
+        <th>Bernie Tweets</th>
+        <th>Trump Tweets</th>
+        <th>Winner's Margin</th>
     </tr>
   </thead>
 
   <tbody>
+    <% @twitter.states.each do |state| %>
       <tr>
         <td>
+          <%= state %><br>
         </td>
         <td>
+          <%=  %>
+        </td>
+        <td>
+          <%=  %>
+        </td>
+        <td>
+          <%=  %>
         </td>
       </tr>
+    <% end %>
   </tbody>
 </table>
