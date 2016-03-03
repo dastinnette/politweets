@@ -35,12 +35,12 @@ $(function () {
                     series: [{
                         name: 'Votes',
                         data: [{
-                            name: 'Obama',
-                            color: '#0200D0',
+                            name: 'Sanders',
+                            color: '#303f9f',
                             y: parseInt(columns[3][row], 10)
                         }, {
-                            name: 'Romney',
-                            color: '#C40401',
+                            name: 'Trump',
+                            color: '#b71c1c',
                             y: parseInt(columns[4][row], 10)
                         }],
                         dataLabels: {
@@ -60,11 +60,11 @@ $(function () {
                     chart: {
                         renderTo: 'container',
                         type: 'map',
-                        borderWidth: 1
+                        borderWidth: 0
                     },
 
                     title: {
-                        text: 'Politweets Analysis'
+                        text: 'Politweets Analysis',
                     },
 
                     legend: {
@@ -88,12 +88,12 @@ $(function () {
                         dataClasses: [{
                             from: -100,
                             to: 0,
-                            color: '#C40401',
+                            color: '#b71c1c',
                             name: 'Trump'
                         }, {
                             from: 0,
                             to: 100,
-                            color: '#0200D0',
+                            color: '#303f9f',
                             name: 'Sanders'
                         }]
                     },

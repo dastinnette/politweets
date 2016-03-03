@@ -22,12 +22,20 @@
 
 /* NAVBAR */
 
-.top-nav {
-  margin-left: 15px;
+.left-nav {
+  margin-left: 20px;
+}
+
+.right-nav {
+  margin-right: 20px;
 }
 
 .logo {
   font-size: 22px;
+}
+
+.nav-color {
+  color: #303f9f;
 }
 
 /* MAP PARTIAL */
@@ -40,7 +48,7 @@
 .loading {
     margin-top: 10em;
     text-align: center;
-    color: gray;
+    color: white;
 }
 
 /* TWEETS INDEX */
