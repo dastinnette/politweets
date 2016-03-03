@@ -9,13 +9,16 @@
   </thead>
 
   <tbody>
-    <% @twitter.states.each do |state| %>
       <tr>
         <td>
-          <%= state %>
+          <% @twitter.search_bernie_tweets.each do |tweet| %>
+            <%= tweet.user.location %>
+          <% end %>
         </td>
         <td>
-          <%=  %>
+          <% @twitter.search_trump_tweets.each do |tweet| %>
+            <%= tweet.user.location %>
+          <% end %>
         </td>
         <td>
           <%=  %>
@@ -24,6 +27,5 @@
           <%=  %>
         </td>
       </tr>
-    <% end %>
   </tbody>
 </table>
