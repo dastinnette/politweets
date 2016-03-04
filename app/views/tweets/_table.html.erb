@@ -12,7 +12,7 @@
     <% @twitter.states.each do |state| %>
       <tr>
         <td>
-          <%= state %>
+          <%= link_to "#{state}", tweet_path(:id), class: "waves-effect waves-light btn indigo darken-2" %>
         </td>
         <td>
           <%= state %>
