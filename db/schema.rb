@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305012729) do
+ActiveRecord::Schema.define(version: 20160305202221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160305012729) do
     t.integer  "hashtag_id"
     t.string   "message"
     t.string   "handle"
+    t.string   "state"
   end
 
   add_index "tweets", ["hashtag_id"], name: "index_tweets_on_hashtag_id", using: :btree
