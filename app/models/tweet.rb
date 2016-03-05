@@ -9,6 +9,8 @@ class Tweet < ActiveRecord::Base
 
     t.hashtag_id = 1
     t.location   = tweet.user.location
+    t.handle     = tweet.user.screen_name
+    t.message    = tweet.text
     t.save
   end
 
