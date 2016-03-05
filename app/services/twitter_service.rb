@@ -12,20 +12,17 @@ class TwitterService
 
   # Make more dynamic to allow for searches
 
-  def search_bernie_tweets
+  def search_tweets
     tweets = client.search("to:#feelthebern", result_type: "recent")
     filtered_tweets = tweets.select do |tweet|
       !tweet.user.location.is_a?(Twitter::NullObject)
     end
-    filtered_tweets.each { |tweet| Tweet.create_bernie_from_search(tweet) }
+    filtered_tweets
   end
 
-  def search_trump_tweets
-    tweets = client.search("to:#makeamericagreatagain", result_type: "recent")
-    filtered_tweets = tweets.select do |tweet|
-      !tweet.user.location.is_a?(Twitter::NullObject)
-    end
-    filtered_tweets.each { |tweet| Tweet.create_trump_from_search(tweet) }
+  def normalize_tweet_location
+    search_tweets
+    .each { |tweet| Tweet.create_from_search(tweet) }
   end
 
   def states
