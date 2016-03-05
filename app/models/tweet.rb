@@ -6,10 +6,10 @@ class Tweet < ActiveRecord::Base
   validates :handle, presence: true
   validates :message, presence: true
 
-  def self.create_from_search(tweet)
+  def self.create_from_search(tweet, index)
     t = Tweet.find_or_create_by(tweet_id: tweet.id)
 
-    t.hashtag_id = 1
+    t.hashtag_id = (index + 1)
     t.location   = tweet.user.location
     t.handle     = tweet.user.screen_name
     t.message    = tweet.text
