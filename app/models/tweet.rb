@@ -28,4 +28,13 @@ class Tweet < ActiveRecord::Base
     states
   end
 
+  # def assign_states_to_tweets
+  #   tweets = Tweet.all
+  #   states = standardize_location
+  #   complete_tweets = tweets.each_with_index.map do |tweet,|
+  #     tweet.update(state: state)
+  #   end
+  #   complete_tweets
+  # end
+
 end
