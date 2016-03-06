@@ -16,25 +16,32 @@ class Tweet < ActiveRecord::Base
     t.save
   end
 
-  def standardize_location
-    tweets = Tweet.all
+  def self.assign_states_to_tweets
+    tweets = Tweet.where(state: nil)
+    states = standardize_location(tweets)
+    tweets.each_with_index do |tweet, i|
+      if states[i] == nil
+        tweet.destroy
+      else
+        tweet.update(state: states[i])
+      end
+    end
+  end
+
+  def self.standardize_location(tweets)
     locations = tweets.map do |tweet|
       tweet.location
     end
-    states = locations.map do |location|
-      Geocoder.search(location).first.state_code unless
-        Geocoder.search(location).first.nil?
+    locations.map do |location|
+      Geocoder.search(location).try(:first).try(:state)
     end
-    states
   end
 
-  # def assign_states_to_tweets
+  # def count_tweets
   #   tweets = Tweet.all
-  #   states = standardize_location
-  #   complete_tweets = tweets.each_with_index.map do |tweet,|
-  #     tweet.update(state: state)
+  #   tweets.each do |tweet|
+  #     tweet.where(state: #{state}) == something && where(hastag_id: 1 or 2)
   #   end
-  #   complete_tweets
   # end
 
   def state_names

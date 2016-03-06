@@ -1,7 +1,7 @@
 class TwitterService
   attr_reader :client
 
-  def initialize(current_user)
+  def initialize
     @client ||= Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
       config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
@@ -17,12 +17,5 @@ class TwitterService
     end
     filtered_tweets.each { |tweet| Tweet.create_from_search(tweet, index) }
   end
-
-  # def count_tweets
-  #   tweets = Tweet.all
-  #   tweets.each do |tweet|
-  #     tweet.where(state: #{state}) == something && where(hastag_id: 1 or 2)
-  #   end
-  # end
 
 end
