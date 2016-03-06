@@ -1,7 +1,7 @@
 class TwitterService
   attr_reader :client
 
-  def initialize
+  def initialize(current_user=nil)
     @client ||= Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
       config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
@@ -11,7 +11,7 @@ class TwitterService
   end
 
   def search_tweets(hashtag, index)
-    tweets = client.search("to:#{hashtag}", result_type: "recent") 
+    tweets = client.search("to:#{hashtag}", result_type: "recent")
     filtered_tweets = tweets.select do |tweet|
       !tweet.user.location.is_a?(Twitter::NullObject)
     end

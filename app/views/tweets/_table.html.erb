@@ -9,16 +9,19 @@
   </thead>
 
   <tbody>
-    <% @twitter.search_tweets.each do |state| %>
+    <% Tweet.state_codes.each do |state| %>
       <tr>
         <td>
-          <%= state.user.location %>
+          <%= state %>
         </td>
         <td>
+          <%= Tweet.bernie_by_state(state) %>
         </td>
         <td>
+          <%= Tweet.trump_by_state(state) %>
         </td>
         <td>
+
         </td>
       </tr>
     <% end %>
