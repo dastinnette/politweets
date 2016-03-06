@@ -18,84 +18,136 @@ class Tweet < ActiveRecord::Base
 
   def self.assign_states_to_tweets
     tweets = Tweet.where(state: nil)
-    states = standardize_location(tweets)
-    tweets.each_with_index do |tweet, i|
-      if states[i] == nil
+    tweets.each do |tweet|
+      state = standardize_location(tweet)
+      if state == nil
         tweet.destroy
       else
-        tweet.update(state: states[i])
+        tweet.update(state: state)
       end
     end
   end
 
-  def self.standardize_location(tweets)
-    locations = tweets.map do |tweet|
-      tweet.location
-    end
-    locations.map do |location|
-      Geocoder.search(location).try(:first).try(:state)
-    end
+  def self.standardize_location(tweet)
+    location = tweet.location
+    state = Geocoder.search(location).try(:first).try(:state)
+    state_codes.include?(state) ? state : nil
   end
 
-  # def count_tweets
-  #   tweets = Tweet.all
-  #   tweets.each do |tweet|
-  #     tweet.where(state: #{state}) == something && where(hastag_id: 1 or 2)
-  #   end
-  # end
+  def self.count_tweets
+    state_tweets = Tweet.all.group_by(&:state)
+    state_tweets.each do | key, value|
+      state_tweets[key] = value.group_by(&:hashtag_id)
+    end
+    state_tweets
+  end
+
+  def self.state_codes
+    ["AK",
+     "AL",
+     "AR",
+     "AZ",
+     "CA",
+     "CO",
+     "CT",
+     "DC",
+     "DE",
+     "FL",
+     "GA",
+     "HI",
+     "IA",
+     "ID",
+     "IL",
+     "IN",
+     "KS",
+     "KY",
+     "LA",
+     "MA",
+     "MD",
+     "ME",
+     "MI",
+     "MN",
+     "MO",
+     "MS",
+     "MT",
+     "NC",
+     "ND",
+     "NE",
+     "NH",
+     "NJ",
+     "NM",
+     "NV",
+     "NY",
+     "OH",
+     "OK",
+     "OR",
+     "PA",
+     "RI",
+     "SC",
+     "SD",
+     "TN",
+     "TX",
+     "UT",
+     "VA",
+     "VT",
+     "WA",
+     "WI",
+     "WV",
+     "WY"]
+  end
 
   def state_names
-    states = ["Alabama",
-              "Alaska",
-              "Arizona",
-              "Arkansas",
-              "California",
-              "Colorado",
-              "Connecticut",
-              "District of Columbia",
-              "Delaware",
-              "Florida",
-              "Georgia",
-              "Hawaii",
-              "Idaho",
-              "Illinois",
-              "Indiana",
-              "Iowa",
-              "Kansas",
-              "Kentucky",
-              "Louisiana",
-              "Maine",
-              "Maryland",
-              "Massachusetts",
-              "Michigan",
-              "Minnesota",
-              "Mississippi",
-              "Missouri",
-              "Montana",
-              "Nebraska",
-              "Nevada",
-              "New Hampshire",
-              "New Jersey",
-              "New Mexico",
-              "New York",
-              "North Carolina",
-              "North Dakota",
-              "Ohio",
-              "Oklahoma",
-              "Oregon",
-              "Pennsylvania",
-              "Rhode Island",
-              "South Carolina",
-              "South Dakota",
-              "Tennessee",
-              "Texas",
-              "Utah",
-              "Vermont",
-              "Virginia",
-              "Washington",
-              "West Virginia",
-              "Wisconsin",
-              "Wyoming"]
+    ["Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "District of Columbia",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"]
   end
 
   def state_descriptions
