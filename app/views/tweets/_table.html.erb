@@ -9,19 +9,21 @@
   </thead>
 
   <tbody>
+    <% Tweet.state_codes.each do |state| %>
       <tr>
         <td>
-
+          <%= state %>
         </td>
         <td>
-          <%= state_tweets[:state][1].count %>
+          <%= Tweet.bernie_by_state(state) %>
         </td>
         <td>
-          <%= state_tweets[:state][2].count %>
+          <%= Tweet.trump_by_state(state) %>
         </td>
         <td>
 
         </td>
       </tr>
+    <% end %>
   </tbody>
 </table>

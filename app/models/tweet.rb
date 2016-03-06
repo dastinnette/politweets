@@ -42,11 +42,27 @@ class Tweet < ActiveRecord::Base
     state_tweets
   end
 
+  def self.bernie_by_state(state)
+    if count_tweets[state][1].nil?
+      0
+    else
+      count_tweets[state][1].count
+    end
+  end
+
+  def self.trump_by_state(state)
+    if count_tweets[state][2].nil?
+      0
+    else
+      count_tweets[state][2].count
+    end
+  end
+
   def self.state_codes
-    ["AK",
-     "AL",
-     "AR",
+    ["AL",
+     "AK",
      "AZ",
+     "AR",
      "CA",
      "CO",
      "CT",
@@ -55,29 +71,29 @@ class Tweet < ActiveRecord::Base
      "FL",
      "GA",
      "HI",
-     "IA",
      "ID",
      "IL",
      "IN",
+     "IA",
      "KS",
      "KY",
      "LA",
-     "MA",
-     "MD",
      "ME",
+     "MD",
+     "MA",
      "MI",
      "MN",
-     "MO",
      "MS",
+     "MO",
      "MT",
-     "NC",
-     "ND",
      "NE",
+     "NV",
      "NH",
      "NJ",
      "NM",
-     "NV",
      "NY",
+     "NC",
+     "ND",
      "OH",
      "OK",
      "OR",
@@ -88,15 +104,15 @@ class Tweet < ActiveRecord::Base
      "TN",
      "TX",
      "UT",
-     "VA",
      "VT",
+     "VA",
      "WA",
      "WI",
      "WV",
      "WY"]
   end
 
-  def state_names
+  def self.state_names
     ["Alabama",
     "Alaska",
     "Arizona",
@@ -150,7 +166,7 @@ class Tweet < ActiveRecord::Base
     "Wyoming"]
   end
 
-  def state_descriptions
+  def self.state_descriptions
     ["We may be 49th in everything, but thank God for Mississippi",
      "No, we can't actually see Russia from our backyards",
      "Beige in every way imaginable",
