@@ -35,11 +35,13 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.count_tweets
-    state_tweets = Tweet.all.group_by(&:state)
-    count = state_tweets.each do | key, value|
-      state_tweets[key] = value.group_by(&:hashtag_id)
-    end
-    count
+    # Rails.cache.fetch("") do
+      state_tweets = Tweet.all.group_by(&:state)
+      count = state_tweets.each do | key, value|
+        state_tweets[key] = value.group_by(&:hashtag_id)
+      end
+      count
+    # end
   end
 
   def self.bernie_by_state(state)
