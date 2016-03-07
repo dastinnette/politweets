@@ -4,7 +4,7 @@
         <th>State</th>
         <th>Bernie Tweets</th>
         <th>Trump Tweets</th>
-        <th>Winner's Margin</th>
+        <th>Winner</th>
     </tr>
   </thead>
 
@@ -21,7 +21,7 @@
           <%= Tweet.trump_by_state(state) %>
         </td>
         <td>
-
+          <%= Tweet.winning_margin(state) %>
         </td>
       </tr>
     <% end %>
