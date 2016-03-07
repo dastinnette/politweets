@@ -35,7 +35,6 @@ RSpec.describe Tweet, type: :model do
                         message: "Yeehaw America!!! #Trump2016")
       expect(tweet).to be_invalid
     end
-
   end
 
 end
