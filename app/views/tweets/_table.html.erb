@@ -1,29 +1,31 @@
-<table class="highlight table-color">
-  <thead>
-    <tr>
-        <th>State</th>
-        <th>Bernie Tweets</th>
-        <th>Trump Tweets</th>
-        <th>Winner</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% Tweet.state_codes.each do |state| %>
+<div class="box">
+  <table class="highlight table-color">
+    <thead>
       <tr>
-        <td>
-          <%= state %>
-        </td>
-        <td>
-          <%= Tweet.bernie_by_state(state) %>
-        </td>
-        <td>
-          <%= Tweet.trump_by_state(state) %>
-        </td>
-        <td>
-          <%= Tweet.winning_margin(state) %>
-        </td>
+          <th>State</th>
+          <th>Bernie Tweets</th>
+          <th>Trump Tweets</th>
+          <th>Winner</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% Tweet.state_codes.each do |state| %>
+        <tr>
+          <td>
+            <%= state %>
+          </td>
+          <td>
+            <%= Tweet.bernie_by_state(state) %>
+          </td>
+          <td>
+            <%= Tweet.trump_by_state(state) %>
+          </td>
+          <td>
+            <%= Tweet.winning_margin(state) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

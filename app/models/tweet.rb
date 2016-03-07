@@ -35,11 +35,11 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.count_tweets
-    state_tweets ||= Tweet.all.group_by(&:state)
-    state_tweets.each do | key, value|
+    state_tweets = Tweet.all.group_by(&:state)
+    count = state_tweets.each do | key, value|
       state_tweets[key] = value.group_by(&:hashtag_id)
     end
-    state_tweets
+    count
   end
 
   def self.bernie_by_state(state)
@@ -59,8 +59,8 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.winning_margin(state)
-    bernie ||= bernie_by_state(state)
-    trump  ||= trump_by_state(state)
+    bernie = bernie_by_state(state)
+    trump  = trump_by_state(state)
     if bernie < trump
       margin = trump/(bernie + trump).to_f * 100.0
       "Trump - #{margin.round(1)}%"
