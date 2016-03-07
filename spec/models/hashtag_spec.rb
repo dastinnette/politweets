@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Hashtag, type: :model do
 
   describe "Hashtag model testing" do
 

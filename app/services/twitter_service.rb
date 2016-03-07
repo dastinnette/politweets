@@ -11,7 +11,7 @@ class TwitterService
   end
 
   def search_tweets(hashtag, index)
-    tweets = client.search("to:#{hashtag}", result_type: "recent", count: 100)
+    tweets = client.search("to:#{hashtag}", result_type: "recent")
     filtered_tweets = tweets.select do |tweet|
       !tweet.user.location.is_a?(Twitter::NullObject)
     end
