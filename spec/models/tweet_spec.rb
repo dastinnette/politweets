@@ -4,6 +4,24 @@ RSpec.describe Tweet, type: :model do
 
   describe "Tweet model testing" do
 
+    it "properly counts bernie tweets by state" do
+      create_hashtags
+      create_tweets_with_states
+
+      output = Tweet.bernie_by_state("IL")
+
+      expect(output).to eq(1)
+    end
+
+    it "properly counts trump tweets by state" do
+      create_hashtags
+      create_tweets_with_states
+
+      output = Tweet.trump_by_state("IL")
+
+      expect(output).to eq(2)
+    end
+
     it "is invalid without a handle" do
       tweet = Tweet.new(tweet_id: 22,
                         location: "Dallas",
