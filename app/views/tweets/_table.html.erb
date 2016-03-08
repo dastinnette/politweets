@@ -10,11 +10,11 @@
     </thead>
 
     <tbody>
-      <% cache("tweets-breakdown5") do %>
+      <% cache("tweets-breakdown") do %>
         <% Tweet.state_codes.each do |state| %>
           <tr>
             <td>
-              <%= link_to "state", state_path(id: :state_id), class: "waves-effect waves-light btn indigo darken-2" %>
+              <%= state %>
             </td>
             <td>
               <%= Tweet.bernie_by_state(state) %>
