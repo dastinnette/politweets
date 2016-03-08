@@ -5,8 +5,8 @@ function makeJankyMap() {
   var chart = new Highcharts.Map({
     chart: {
         renderTo: 'pizza',
-        width: 1050,
-        height: 720
+        width: 1010,
+        height: 660
     },
     events: {
       click: function(event){
@@ -15,14 +15,13 @@ function makeJankyMap() {
       }
     },
     title: {
-        text: 'Politweets THROWDOWNS',
-        color: "#303f9f"
+        text: null
     },
     legend: {
       enabled: false
     },
     series : [{
-        animation: {duration: 1000},
+        animation: {duration: 800},
         data : realData,
         mapData: Highcharts.maps['countries/us/us-all'],
         joinBy: ['postal-code','state'],
