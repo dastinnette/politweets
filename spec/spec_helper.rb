@@ -54,6 +54,33 @@ SimpleCov.start("rails")
                       state_code: "IL")
   end
 
+  def create_tweets_with_states2
+    t1 = Tweet.create(tweet_id: "999999999999999999",
+                      location: "Chicago",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "Bernie4prez",
+                      state_code: "IL")
+    t1 = Tweet.create(tweet_id: "999999999999999998",
+                      location: "Chicago",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "BernieForPrez",
+                      state_code: "IL")
+    t2 = Tweet.create(tweet_id: "888888888888888888",
+                      location: "Madison",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildThatWall",
+                      state_code: "WI")
+    t3 = Tweet.create(tweet_id: "777777777777777777",
+                      location: "Chicago",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildTheWall",
+                      state_code: "IL")
+  end
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

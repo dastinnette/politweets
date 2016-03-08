@@ -22,6 +22,24 @@ RSpec.describe Tweet, type: :model do
       expect(output).to eq(2)
     end
 
+    it "properly calculates a trump winner" do
+      create_hashtags
+      create_tweets_with_states
+
+      output = Tweet.winning_margin("IL")
+
+      expect(output).to eq("Trump - 66.7%")
+    end
+
+    it "properly calculates a bernie winner" do
+      create_hashtags
+      create_tweets_with_states2
+
+      output = Tweet.winning_margin("IL")
+
+      expect(output).to eq("Bernie - 66.7%")
+    end
+
     it "is invalid without a handle" do
       tweet = Tweet.new(tweet_id: 22,
                         location: "Dallas",
