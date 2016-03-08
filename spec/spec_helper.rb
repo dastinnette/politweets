@@ -33,19 +33,52 @@ SimpleCov.start("rails")
                       hashtag_id: 1,
                       message: "Trump listens to Nickleback #FeelTheBern",
                       handle: "Bernie4prez",
-                      state: "IL")
+                      state_code: "IL")
+    t1 = Tweet.create(tweet_id: "999999999999999998",
+                      location: "Indianapolis",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "BernieForPrez",
+                      state_code: "IN")
     t2 = Tweet.create(tweet_id: "888888888888888888",
                       location: "Chicago",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildThatWall",
-                      state: "IL")
+                      state_code: "IL")
     t3 = Tweet.create(tweet_id: "777777777777777777",
                       location: "Chicago",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildTheWall",
-                      state: "IL")
+                      state_code: "IL")
+  end
+
+  def create_tweets_with_states2
+    t1 = Tweet.create(tweet_id: "999999999999999999",
+                      location: "Chicago",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "Bernie4prez",
+                      state_code: "IL")
+    t1 = Tweet.create(tweet_id: "999999999999999998",
+                      location: "Chicago",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "BernieForPrez",
+                      state_code: "IL")
+    t2 = Tweet.create(tweet_id: "888888888888888888",
+                      location: "Madison",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildThatWall",
+                      state_code: "WI")
+    t3 = Tweet.create(tweet_id: "777777777777777777",
+                      location: "Chicago",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildTheWall",
+                      state_code: "IL")
   end
 
 RSpec.configure do |config|
