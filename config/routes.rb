@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :tweets, only: [:index, :show]
+  resources :tweets, only: [:index]
+  resources :states, only: [:index, :show]
   resources :users, only: [:show]
 
   get '/auth/twitter', as: :login

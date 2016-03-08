@@ -10,12 +10,20 @@ class TwitterService
     end
   end
 
-  def search_tweets(hashtag, index)
+  def search_bernie_tweets(hashtag)
     tweets = client.search("to:#{hashtag}", result_type: "recent")
     filtered_tweets = tweets.select do |tweet|
       !tweet.user.location.is_a?(Twitter::NullObject)
     end
-    filtered_tweets.each { |tweet| Tweet.create_from_search(tweet, index) }
+    filtered_tweets.each { |tweet| Tweet.create_bernie_from_search(tweet) }
+  end
+
+  def search_trump_tweets(hashtag)
+    tweets = client.search("to:#{hashtag}", result_type: "recent")
+    filtered_tweets = tweets.select do |tweet|
+      !tweet.user.location.is_a?(Twitter::NullObject)
+    end
+    filtered_tweets.each { |tweet| Tweet.create_trump_from_search(tweet) }
   end
 
 end
