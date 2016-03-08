@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :state do
+    name "MyString"
+    description "MyString"
+  end
   factory :hashtag do
     name "MyString"
   end

@@ -11,8 +11,11 @@ gem 'figaro'
 gem 'pg'
 gem 'omniauth-twitter'
 gem 'twitter'
-gem 'rails_12factor'
 gem 'geocoder'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'pry'

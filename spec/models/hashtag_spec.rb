@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Hashtag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "Hashtag model testing" do
+
+    it "is invalid without a name" do
+      hashtag = Hashtag.new
+      expect(hashtag).to be_invalid
+    end
+  end
+
 end

@@ -5,41 +5,30 @@ RSpec.describe "Twitter API", type: :request do
 
   before do
     @service = TwitterService.new(user)
+    create_hashtags
   end
 
-  it "returns a list of tweets containing #FeelTheBern" do
+  it "returns a list of tweets containing #feelthebern" do
     VCR.use_cassette("bernie_tweets") do
-      tweets      = service.bernie_tweets
+
+      tweets      = service.search_bernie_tweets("#feelthebern")
       first_tweet = tweets.first
 
-      expect(tweets.count).to eq(529)
-      expect(first_tweet.user.screen_name).to eq("CA_Talesh")
+      expect(tweets.count).to eq(198)
+      expect(first_tweet.user.screen_name).to eq("EnviroChem")
+      expect(first_tweet.user.location).to eq("Saco Maine")
     end
   end
 
-  it "sucessfully outputs a #FeelTheBerner's location" do
-    VCR.use_cassette("bernie_tweets") do
-      tweet = service.bernie_tweets.first
-
-      expect(tweet.user.location).to eq("Houston")
-    end
-  end
-
-  it "returns a list of tweets containing #MakeAmericaGreatAgain" do
+  it "returns a list of tweets containing #makeamericagreatagain" do
     VCR.use_cassette("trump_tweets") do
-      tweets      = service.trump_tweets
+
+      tweets      = service.search_trump_tweets("#makeamericagreatagain")
       first_tweet = tweets.first
 
-      expect(tweets.count).to eq(208)
-      expect(first_tweet.user.screen_name).to eq("khcslip")
-    end
-  end
-
-  it "sucessfully outputs a #Trumper's location" do
-    VCR.use_cassette("trump_tweets") do
-      tweet = service.trump_tweets.first
-
-      expect(tweet.user.location).to eq("Providence, RI")
+      expect(tweets.count).to eq(60)
+      expect(first_tweet.user.screen_name).to eq("Helen571162721")
+      expect(first_tweet.user.location).to eq("United States")
     end
   end
 

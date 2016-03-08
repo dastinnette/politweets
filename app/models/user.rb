@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  validates :uid, uniqueness: true
+  validates :name, presence: true
+  validates :screen_name, presence: true
 
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(uid: auth[:uid])
