@@ -20,11 +20,32 @@ SimpleCov.start("rails")
                       hashtag_id: 1,
                       message: "Trump listens to Nickleback #FeelTheBern",
                       handle: "Bernie4prez")
-    t1 = Tweet.create(tweet_id: "888888888888888888",
+    t2 = Tweet.create(tweet_id: "888888888888888888",
                       location: "El Paso",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
-                      handle: "BuildThatWall")                  
+                      handle: "BuildThatWall")
+  end
+
+  def create_tweets_with_states
+    t1 = Tweet.create(tweet_id: "999999999999999999",
+                      location: "Chicago",
+                      hashtag_id: 1,
+                      message: "Trump listens to Nickleback #FeelTheBern",
+                      handle: "Bernie4prez",
+                      state: "IL")
+    t2 = Tweet.create(tweet_id: "888888888888888888",
+                      location: "Chicago",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildThatWall",
+                      state: "IL")
+    t3 = Tweet.create(tweet_id: "777777777777777777",
+                      location: "Chicago",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildTheWall",
+                      state: "IL")
   end
 
 RSpec.configure do |config|

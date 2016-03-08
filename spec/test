@@ -105,3 +105,29 @@ def self.state_descriptions
    "It's too cold to be sober",
    "Five times more cows than people live here - wait, what's Twitter?"]
 end
+
+
+def self.count_tweets
+  # Rails.cache.fetch("") do
+    state_tweets = Tweet.all.group_by(&:state)
+    count = state_tweets.each do | key, value|
+      state_tweets[key] = value.group_by(&:hashtag_id)
+    end
+    count
+  # end
+
+  # Run from background worker
+  # Rails.cache.write("count_tweets", Tweet.calculate_tweets)
+
+  Rails.cache.fetch("count_tweets") do
+    calculate_tweets
+  end
+end
+
+def self.calculate_tweets
+  state_tweets = Tweet.all.group_by(&:state)
+  count = state_tweets.each do | key, value|
+    state_tweets[key] = value.group_by(&:hashtag_id)
+  end
+  count
+end
