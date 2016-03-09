@@ -14,7 +14,7 @@
         <% Tweet.state_codes.each do |state| %>
           <tr>
             <td>
-              <%= state %>
+              <%= State.state_hash[state] %>
             </td>
             <td>
               <%= Tweet.bernie_by_state(state) %>
