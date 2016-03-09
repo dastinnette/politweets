@@ -9,6 +9,10 @@ SimpleCov.start("rails")
              oauth_token_secret: ENV['TWITTER_TOKEN_SECRET'])
   end
 
+  def create_state
+    State.create(name: "Alabama", description: "Holy Santa Claus shit")
+  end
+
   def create_hashtags
     h1 = Hashtag.create(id: 1, name: "#feelthebern")
     h2 = Hashtag.create(id: 2, name: "#makeamericagreatagain")
@@ -16,15 +20,17 @@ SimpleCov.start("rails")
 
   def create_tweets
     t1 = Tweet.create(tweet_id: "999999999999999999",
-                      location: "Chicago",
+                      location: "Birmingham",
                       hashtag_id: 1,
                       message: "Trump listens to Nickleback #FeelTheBern",
-                      handle: "Bernie4prez")
+                      handle: "Bernie4prez",
+                      state_code: "AL")
     t2 = Tweet.create(tweet_id: "888888888888888888",
-                      location: "El Paso",
+                      location: "Los Angeles, CA",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
-                      handle: "BuildThatWall")
+                      handle: "BuildThatWall",
+                      state_code: "CA")
   end
 
   def create_tweets_with_states

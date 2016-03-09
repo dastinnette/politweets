@@ -1,5 +1,9 @@
 /* WELCOME PAGE */
 
+text,body {
+  text-shadow: none !important;
+}
+
 .homepage {
   background: url("politics") no-repeat center center fixed;
   -webkit-background-size: cover;

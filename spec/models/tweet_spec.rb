@@ -40,6 +40,17 @@ RSpec.describe Tweet, type: :model do
       expect(output).to eq("Bernie - 66.7%")
     end
 
+    it "properly assigns state ids to tweets" do
+      create_state
+      create_hashtags
+      create_tweets
+
+      tweet = Tweet.find_by(tweet_id: "999999999999999999")
+      Tweet.assign_state_id_to_tweet
+
+      expect(tweet.state_id).to eq(1)
+    end
+
     it "is invalid without a handle" do
       tweet = Tweet.new(tweet_id: 22,
                         location: "Dallas",
