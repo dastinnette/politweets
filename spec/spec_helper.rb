@@ -2,7 +2,7 @@ require "simplecov"
 SimpleCov.start("rails")
 
   def user
-    User.new(uid: ENV['TWITTER_UID'],
+    User.create(uid: ENV['TWITTER_UID'],
              name: 'David Stinnette',
              screen_name: 'dastinnette',
              oauth_token: ENV['TWITTER_TOKEN'],
@@ -31,6 +31,11 @@ SimpleCov.start("rails")
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildThatWall",
                       state_code: "CA")
+    t3 = Tweet.create(tweet_id: "888888888888888887",
+                      location: "Cali",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildTheWall")
   end
 
   def create_tweets_with_states

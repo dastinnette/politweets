@@ -1,0 +1,13 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<br>
+<div class="container">
+  <h3 class="t-index-title"><%= @state.name %></h3>
+  <p class="t-index-text"><%= @state.description %></p>
+<br>
+
+  <%= pie_chart({
+      "Bernie" => Tweet.bernie_by_state(State.state_hash.invert[@state.name]),
+      "Trump"  => Tweet.trump_by_state(State.state_hash.invert[@state.name])
+      }) %>
+
+</div>

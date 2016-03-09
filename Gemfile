@@ -12,6 +12,7 @@ gem 'pg'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'geocoder'
+gem 'chartkick'
 
 group :production do
   gem 'rails_12factor'
@@ -23,8 +24,6 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
