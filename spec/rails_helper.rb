@@ -35,7 +35,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include FactoryGirl::Syntax::Methods
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -64,12 +63,5 @@ RSpec.configure do |config|
         secret: ENV["TWITTER_TOKEN_SECRET"]
       }
     })
-  end
-end
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
   end
 end
