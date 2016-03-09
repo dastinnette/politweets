@@ -51,6 +51,17 @@ RSpec.describe Tweet, type: :model do
       expect(tweet.state_id).to eq(1)
     end
 
+    it "destroys a tweet with no state id" do
+      create_state
+      create_hashtags
+      create_tweets
+
+      tweet = Tweet.find_by(tweet_id: "888888888888888887")
+      Tweet.assign_state_id_to_tweet
+
+      expect(Tweet.count). to eq(2)
+    end
+
     it "is invalid without a handle" do
       tweet = Tweet.new(tweet_id: 22,
                         location: "Dallas",
