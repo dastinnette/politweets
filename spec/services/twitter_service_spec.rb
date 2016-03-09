@@ -14,9 +14,9 @@ RSpec.describe "Twitter API", type: :request do
       tweets      = service.search_bernie_tweets("#feelthebern")
       first_tweet = tweets.first
 
-      expect(tweets.count).to eq(849)
-      expect(first_tweet.user.screen_name).to eq("ineeshadvs")
-      expect(first_tweet.user.location).to eq("Qatar | The Global Citizen")
+      expect(tweets.count).to eq(763)
+      expect(first_tweet.user.screen_name).to eq("Thebigsale85")
+      expect(first_tweet.user.location).to eq("recalculating route. ")
     end
   end
 
@@ -26,9 +26,9 @@ RSpec.describe "Twitter API", type: :request do
       tweets      = service.search_trump_tweets("#makeamericagreatagain")
       first_tweet = tweets.first
 
-      expect(tweets.count).to eq(655)
-      expect(first_tweet.user.screen_name).to eq("sburton305")
-      expect(first_tweet.user.location).to eq("Birmingham, AL")
+      expect(tweets.count).to eq(796)
+      expect(first_tweet.user.screen_name).to eq("jrjohns4")
+      expect(first_tweet.user.location).to eq("Dunlap, IL")
     end
   end
 
