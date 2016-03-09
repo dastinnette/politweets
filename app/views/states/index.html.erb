@@ -1,21 +1,19 @@
 <br>
 <div class="container">
-  <h3 class="t-index-title">welcome to politweets</h3>
+
+  <%= render partial: "tweets/intro" %>
+
   <p class="t-index-text">
-    confident your comrades #feelthebern? or are you positive your compatriots
-    long to #makeamericagreatagain? over 10,000 recent tweets supporting either
-    bernie or trump were collected by hashtag and sorted by location to decide
-    the political fate of every state - the data may surprise you, but the proof
-    is in the politweets
-    <br>
-    <br>
     explore the table below to discover which states tweet to the left - which
     states matter this election cycle - and which tweet so far right their
     residents surely blocked neil degrasse tyson's account years ago
   </p>
+  <p class="t-index-text">
+    click on any state to see a more detailed breakdown and what residents are
+    tweeting in real time
+  </p>
 </div>
+
 <div class="container">
-  <br>
   <%= render partial: "tweets/table" %>
-  <br>
 </div>
