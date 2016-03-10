@@ -4,8 +4,8 @@ function makeMap() {
 
   var chart = new Highcharts.Map({
     chart: {
-        renderTo: 'pizza',
-        width: $("#pizza").width(),
+        renderTo: 'usa',
+        width: $("#usa").width(),
         height: 750
     },
     events: {
