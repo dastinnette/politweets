@@ -1,4 +1,4 @@
-function makeJankyMap() {
+function makeMap() {
   var realData = JSON.parse($("#map-json-data").html());
   console.log(realData);
 
@@ -38,4 +38,4 @@ function makeJankyMap() {
 });
 }
 
-$(makeJankyMap);
+$(makeMap);
