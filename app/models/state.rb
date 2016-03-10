@@ -5,7 +5,7 @@ class State < ActiveRecord::Base
   validates :description, presence: true
 
   def tweets_by_state
-    Tweet.where(state_id: self.id).order("RANDOM()")[0..4]
+    Tweet.where(state_id: self.id).order("RANDOM()")[0..2]
   end
 
   def self.state_hash
