@@ -51,7 +51,9 @@ class Tweet < ActiveRecord::Base
     tweets.each do |tweet|
       state = State.state_hash[tweet.state_code]
       name = State.find_by(name: state).id
+
       tweet.update(state_id: name)
+      tweet.save
     end
   end
 

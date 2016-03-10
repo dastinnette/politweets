@@ -13,6 +13,7 @@ SimpleCov.start("rails")
     s1 = State.create(name: "Alabama", description: "Holy Santa Claus shit")
     s2 = State.create(name: "Illinois", description: "Pizza")
     s3 = State.create(name: "Wisconsin", description: "Cheese")
+    s4 = State.create(name: "California", description: "Surf")
   end
 
   def create_hashtags
@@ -27,14 +28,26 @@ SimpleCov.start("rails")
                       message: "Trump listens to Nickleback #FeelTheBern",
                       handle: "Bernie4prez",
                       state_code: "AL")
-    t2 = Tweet.create(tweet_id: "888888888888888888",
+    t2 = Tweet.create(tweet_id: "999999999999999998",
+                      location: "Birmingham",
+                      hashtag_id: 2,
+                      message: "Trump listens to Nickleback #MakeAmericaGreatAgain",
+                      handle: "Trump4prez",
+                      state_code: "AL")
+    t3 = Tweet.create(tweet_id: "888888888888888888",
                       location: "Los Angeles, CA",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildThatWall",
                       state_code: "CA")
-    t3 = Tweet.create(tweet_id: "888888888888888887",
-                      location: "Cali",
+    t4 = Tweet.create(tweet_id: "888888888888888886",
+                      location: "Los Angeles, CA",
+                      hashtag_id: 1,
+                      message: "Trump is a goon #feelthebern",
+                      handle: "BuildNoWall",
+                      state_code: "CA")
+    t5 = Tweet.create(tweet_id: "888888888888888887",
+                      location: "Earf",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildTheWall")
