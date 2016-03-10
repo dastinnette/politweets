@@ -8,9 +8,11 @@
 <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" type="text/css" />
 
 <br>
-<div id="pizza">
+<div id="usa">
 </div>
 
-<div id="map-json-data" style="display:none">
-  <%= Tweet.v2.to_json %>
-</div>
+<% cache("map") do %>
+  <div id="map-json-data" style="display:none">
+    <%= Tweet.v2.to_json %>
+  </div>
+<% end %>
