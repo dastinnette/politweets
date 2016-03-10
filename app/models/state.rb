@@ -4,6 +4,10 @@ class State < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
 
+  def tweets_by_state
+    Tweet.where(state_id: self.id).order("RANDOM()")[0..2]
+  end
+
   def self.state_hash
     {"Alabama" => "AL",
      "Alaska" => "AK",
