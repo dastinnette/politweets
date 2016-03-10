@@ -5,8 +5,8 @@ function makeMap() {
   var chart = new Highcharts.Map({
     chart: {
         renderTo: 'pizza',
-        width: 1010,
-        height: 660
+        width: $("#pizza").width(),
+        height: 750
     },
     events: {
       click: function(event){
