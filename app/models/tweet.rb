@@ -97,7 +97,6 @@ class Tweet < ActiveRecord::Base
       by_hashtag = pile_o_tweets.group_by(&:hashtag_id)
       counts = {"Bernie" => by_hashtag[1].count,
                 "Trump" => by_hashtag[2].count}
-                binding.pry
       winner = counts.max_by(&:last).first
       loser = counts.min_by(&:last).first
       total = (counts[loser] + counts[winner])

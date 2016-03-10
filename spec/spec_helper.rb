@@ -10,7 +10,9 @@ SimpleCov.start("rails")
   end
 
   def create_state
-    State.create(id: 1, name: "Alabama", description: "Holy Santa Claus shit")
+    s1 = State.create(name: "Alabama", description: "Holy Santa Claus shit")
+    s2 = State.create(name: "Illinois", description: "Pizza")
+    s3 = State.create(name: "Wisconsin", description: "Cheese")
   end
 
   def create_hashtags
@@ -72,24 +74,30 @@ SimpleCov.start("rails")
                       message: "Trump listens to Nickleback #FeelTheBern",
                       handle: "Bernie4prez",
                       state_code: "IL")
-    t1 = Tweet.create(tweet_id: "999999999999999998",
+    t2 = Tweet.create(tweet_id: "999999999999999998",
                       location: "Chicago",
                       hashtag_id: 1,
                       message: "Trump listens to Nickleback #FeelTheBern",
                       handle: "BernieForPrez",
                       state_code: "IL")
-    t2 = Tweet.create(tweet_id: "888888888888888888",
+    t3 = Tweet.create(tweet_id: "888888888888888888",
                       location: "Madison",
-                      hashtag_id: 2,
+                      hashtag_id: 1,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildThatWall",
                       state_code: "WI")
-    t3 = Tweet.create(tweet_id: "777777777777777777",
+    t4 = Tweet.create(tweet_id: "777777777777777777",
                       location: "Chicago",
                       hashtag_id: 2,
                       message: "I fear diversity #makeamericagreatagain",
                       handle: "BuildTheWall",
                       state_code: "IL")
+    t5 = Tweet.create(tweet_id: "666666666666666666",
+                      location: "Madison",
+                      hashtag_id: 2,
+                      message: "I fear diversity #makeamericagreatagain",
+                      handle: "BuildThemWalls",
+                      state_code: "WI")
   end
 
 RSpec.configure do |config|
