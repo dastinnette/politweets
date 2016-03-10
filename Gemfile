@@ -13,6 +13,7 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'geocoder'
 gem 'chartkick'
+gem 'skylight'
 
 group :production do
   gem 'rails_12factor'
