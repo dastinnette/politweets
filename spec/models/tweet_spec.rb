@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
 
+  before do
+    Rails.cache.clear
+  end
+
   describe "Tweet model testing" do
 
     it "properly counts bernie tweets by state" do
@@ -40,26 +44,36 @@ RSpec.describe Tweet, type: :model do
       expect(output).to eq("Bernie - 66.7%")
     end
 
-    it "properly assigns state ids to tweets" do
+    # it "properly assigns state ids to tweets" do
+    #   create_state
+    #   create_hashtags
+    #   create_tweets
+    #
+    #   tweet = Tweet.find_by(tweet_id: "999999999999999999")
+    #   Tweet.assign_state_id_to_tweet
+    #
+    #   expect(tweet.state_id).to eq(1)
+    # end
+
+    # it "destroys a tweet with no state id" do
+    #   create_state
+    #   create_hashtags
+    #   create_tweets
+    #
+    #   tweet = Tweet.find_by(tweet_id: "888888888888888887")
+    #   Tweet.assign_state_id_to_tweet
+    #
+    #   expect(Tweet.count). to eq(2)
+    # end
+
+    it "properly renders tweet map" do
       create_state
       create_hashtags
-      create_tweets
+      create_tweets_with_states2
 
-      tweet = Tweet.find_by(tweet_id: "999999999999999999")
-      Tweet.assign_state_id_to_tweet
+      output = Tweet.tweet_map
 
-      expect(tweet.state_id).to eq(1)
-    end
-
-    it "destroys a tweet with no state id" do
-      create_state
-      create_hashtags
-      create_tweets
-
-      tweet = Tweet.find_by(tweet_id: "888888888888888887")
-      Tweet.assign_state_id_to_tweet
-
-      expect(Tweet.count). to eq(2)
+      expect(output).to eq("Bernie - 66.7%")
     end
 
     it "is invalid without a handle" do

@@ -91,12 +91,13 @@ class Tweet < ActiveRecord::Base
     end
   end
 
-  def self.v2
+  def self.tweet_map
     colors = {"Bernie" => '#303f9f', "Trump" => '#b71c1c'}
     Tweet.all.group_by(&:state_code).map do |state, pile_o_tweets|
       by_hashtag = pile_o_tweets.group_by(&:hashtag_id)
       counts = {"Bernie" => by_hashtag[1].count,
                 "Trump" => by_hashtag[2].count}
+                binding.pry
       winner = counts.max_by(&:last).first
       loser = counts.min_by(&:last).first
       total = (counts[loser] + counts[winner])

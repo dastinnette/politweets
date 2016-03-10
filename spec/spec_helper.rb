@@ -10,7 +10,7 @@ SimpleCov.start("rails")
   end
 
   def create_state
-    State.create(name: "Alabama", description: "Holy Santa Claus shit")
+    State.create(id: 1, name: "Alabama", description: "Holy Santa Claus shit")
   end
 
   def create_hashtags
