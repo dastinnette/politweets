@@ -10,11 +10,21 @@ RSpec.describe TweetMap, type: :model do
 
       output = TweetMap.tweet_map
 
-      expect(output).to eq([{:state=>"IL", :winner=>"Bernie", :loser=>"Trump",
-        :loserCount=>1, :winnerCount=>2, :color=>"#303f9f",
-        :winnerPercentage=>66.7}, {:state=>"WI", :winner=>"Bernie",
-        :loser=>"Bernie", :loserCount=>1, :winnerCount=>1, :color=>"#303f9f",
-        :winnerPercentage=>50.0}])
+      expect(output).to eq([{:state=>"IL",
+                             :winner=>"Bernie",
+                             :loser=>"Trump",
+                             :loserCount=>1,
+                             :winnerCount=>2,
+                             :color=>"#303f9f",
+                             :winnerPercentage=>66.7}, {
+                               :state=>"WI",
+                               :winner=>"Bernie",
+                               :loser=>"Bernie",
+                               :loserCount=>1,
+                               :winnerCount=>1,
+                               :color=>"#303f9f",
+                               :winnerPercentage=>50.0
+                             }])
     end
   end
 
