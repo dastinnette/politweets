@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe StandardizeTweets, type: :model do
+RSpec.describe TweetFormatter, type: :model do
 
-  describe "Standardize Tweets model" do
+  describe "Tweet formatter model" do
     it "properly assigns state ids to tweets" do
       create_state
       create_hashtags
@@ -12,7 +12,7 @@ RSpec.describe StandardizeTweets, type: :model do
                         message: "Trump listens to Nickleback #FeelTheBern",
                         handle: "Bernie4prez",
                         state_code: "AL")
-      StandardizeTweets.assign_state_id_to_tweet
+      TweetFormatter.assign_state_id_to_tweet
       tweet.reload
 
       expect(tweet.state_id).to eq(3)
@@ -23,7 +23,7 @@ RSpec.describe StandardizeTweets, type: :model do
       create_hashtags
       create_tweets
 
-      StandardizeTweets.assign_state_code_to_tweet
+      TweetFormatter.assign_state_code_to_tweet
 
       expect(Tweet.count).to eq(5)
     end

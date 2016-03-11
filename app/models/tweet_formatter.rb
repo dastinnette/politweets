@@ -1,4 +1,4 @@
-class StandardizeTweets
+class TweetFormatter
 
   def self.assign_state_code_to_tweet
     tweets = Tweet.where(state_code: nil)
@@ -26,6 +26,60 @@ class StandardizeTweets
 
       tweet.update(state_id: name)
     end
+  end
+
+  def self.state_codes
+    ["AL",
+     "AK",
+     "AZ",
+     "AR",
+     "CA",
+     "CO",
+     "CT",
+     "DC",
+     "DE",
+     "FL",
+     "GA",
+     "HI",
+     "ID",
+     "IL",
+     "IN",
+     "IA",
+     "KS",
+     "KY",
+     "LA",
+     "ME",
+     "MD",
+     "MA",
+     "MI",
+     "MN",
+     "MS",
+     "MO",
+     "MT",
+     "NE",
+     "NV",
+     "NH",
+     "NJ",
+     "NM",
+     "NY",
+     "NC",
+     "ND",
+     "OH",
+     "OK",
+     "OR",
+     "PA",
+     "RI",
+     "SC",
+     "SD",
+     "TN",
+     "TX",
+     "UT",
+     "VT",
+     "VA",
+     "WA",
+     "WI",
+     "WV",
+     "WY"]
   end
 
 end
