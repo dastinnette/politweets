@@ -13,7 +13,6 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'geocoder'
 gem 'chartkick'
-gem 'skylight'
 gem 'dalli'
 
 group :production do

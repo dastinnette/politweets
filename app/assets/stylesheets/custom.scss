@@ -39,12 +39,6 @@ text,body {
   color: #b71c1c;
 }
 
-/* TWEETS SHOW */
-
-.show-height {
-  min-height: 270px;
-}
-
 /* FOOTER PARTIAL */
 
 .footer-height {
@@ -56,7 +50,7 @@ text,body {
 #container {
   height: 650px;
   min-width: 900px;
-  margin: 0 auto;		
+  margin: 0 auto;
  }
 
 .loading {
@@ -74,6 +68,10 @@ text,body {
 .box {
   height: 579px;
   overflow-y: auto;
+}
+
+.width {
+  width: 235px;
 }
 
 /* NAVBAR PARTIAL */

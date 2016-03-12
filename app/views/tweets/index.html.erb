@@ -1,13 +1,35 @@
 <div class="container">
+
   <h2 class="t-index-title">welcome to politweets</h2>
   <p class="t-index-text">
+    political polls are increasingly innacurate - whichever politician
+    dominiates the conversation on social media has become the new measuring
+    stick for predicting success
+    <br><br>
     explore the map below to discover which states have a majority tweeting
     for bernie in 2016 - and which tweet so far right their residents surely
     blocked neil degrasse tyson's account years ago
   </p>
 
   <%= render partial: "tweets/map" %>
-  <br>  
-  <%= render partial: "tweets/intro" %>
 
+  <br>
+  <p class="t-index-text">
+    some states
+
+    <%= link_to "#feelthebern",
+    "https://twitter.com/search?q=%23feelthebern&src=typd",
+    target: "_blank" %>
+
+    while others long to
+
+    <%= link_to "#makeamericagreatagain",
+    "https://twitter.com/search?q=%23makeamericagreatagain&src=typd",
+    target: "_blank" %>
+
+    - politweets regularly collects 10,000 recent tweets supporting either bernie
+    or trump and sorts them by location to decide the political fate of every
+    state - the data may surprise you, but the proof is in the politweets
+  </p>
+  <br>
 </div>

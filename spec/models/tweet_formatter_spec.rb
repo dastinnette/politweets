@@ -27,6 +27,26 @@ RSpec.describe TweetFormatter, type: :model do
 
       expect(Tweet.count).to eq(5)
     end
+
+    it "properly assigns state code to tweet" do
+      create_hashtags
+      create_tweets
+
+      tweet = Tweet.find_by(tweet_id: "999999999999999999")
+      TweetFormatter.assign_state_code_to_tweet
+
+      expect(tweet.state_code).to eq("AL")
+    end
+
+    it "properly searches for user location" do
+      create_hashtags
+      create_tweets
+
+      tweet = Tweet.find_by(tweet_id: "888888888888888888")
+      output = TweetFormatter.standardize_location(tweet)
+
+      expect(output).to eq("CA")
+    end
   end
 
 end

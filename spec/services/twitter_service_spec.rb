@@ -5,30 +5,21 @@ RSpec.describe "Twitter API", type: :request do
 
   before do
     @service = TwitterService.new(user)
-    create_hashtags
   end
 
-  it "returns a list of tweets containing #feelthebern" do
-    VCR.use_cassette("bernie_tweets") do
+  it "returns a list of tweets containing hashtags" do
+    hashtags = ["#feelthebern", "#makeamericagreatagain"]
 
-      tweets      = service.search_bernie_tweets("#feelthebern")
+    VCR.use_cassette("pull_tweets") do
+      tweets      = service.search_tweets(hashtags, [0, 1])
       first_tweet = tweets.first
+      last_tweet  = tweets.last
 
-      expect(tweets.count).to eq(763)
-      expect(first_tweet.user.screen_name).to eq("Thebigsale85")
-      expect(first_tweet.user.location).to eq("recalculating route. ")
-    end
-  end
-
-  it "returns a list of tweets containing #makeamericagreatagain" do
-    VCR.use_cassette("trump_tweets") do
-
-      tweets      = service.search_trump_tweets("#makeamericagreatagain")
-      first_tweet = tweets.first
-
-      expect(tweets.count).to eq(796)
-      expect(first_tweet.user.screen_name).to eq("jrjohns4")
-      expect(first_tweet.user.location).to eq("Dunlap, IL")
+      expect(tweets.count).to eq(91)
+      expect(first_tweet.user.screen_name).to eq("JerseyDan67")
+      expect(first_tweet.user.location).to eq("Hamilton, NJ")
+      expect(last_tweet.user.screen_name).to eq("JCPinCompton")
+      expect(last_tweet.user.location).to eq("Compton, CA")
     end
   end
 

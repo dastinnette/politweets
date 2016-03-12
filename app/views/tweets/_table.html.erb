@@ -1,8 +1,8 @@
 <div class="box">
-  <table class="highlight table-color">
+  <table class="highlight table-color center">
     <thead>
       <tr>
-          <th>State</th>  
+          <th>State</th>
           <th>Bernie Tweets</th>
           <th>Trump Tweets</th>
           <th>Winner</th>
@@ -11,20 +11,21 @@
 
     <tbody>
       <% cache("tweets-table") do %>
-        <% Tweet.state_codes.each do |state| %>
+        <% TweetFormatter.state_codes.each do |state| %>
           <tr>
             <td>
               <%= link_to "#{State.state_hash[state]}",
-                  state_path(State.find_by(name: (State.state_hash[state])).id) %>
+                  state_path(State.find_by(name: (State.state_hash[state])).id),
+                  class: "waves-effect waves-light btn indigo darken-2 width" %>
             </td>
             <td>
-              <%= Tweet.bernie_by_state(state) %>
+              <%= TweetCalculator.bernie_by_state(state) %>
             </td>
             <td>
-              <%= Tweet.trump_by_state(state) %>
+              <%= TweetCalculator.trump_by_state(state) %>
             </td>
             <td>
-              <%= Tweet.winning_margin(state) %>
+              <%= TweetCalculator.winning_margin(state) %>
             </td>
           </tr>
         <% end %>
