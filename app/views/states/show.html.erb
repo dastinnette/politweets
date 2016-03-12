@@ -13,12 +13,19 @@
   <br>
 
   <h5 class="t-index-title">Live Tweets from <%= @state.name %></h5>
-  <div class="t-index-text">
-    <% @state.tweets_by_state.each do |tweet| %>
-      User: <%= tweet.handle %><br>
-      Location: <%= tweet.location %><br>
-      Tweet: <%= tweet.message %><br><br>
-    <% end %>
+  <br>
+  <div class="row">
+    <div class="t-index-text">
+      <% @state.tweets_by_state.each do |tweet| %>
+      <div class="col s3">
+        <%= tweet.handle %><br>
+        <%= tweet.location %><br>
+      </div>
+      <div class="col s9">
+        <%= tweet.message %><br><br>
+      </div>
+      <% end %>
+    </div>
   </div>
 
 </div>
