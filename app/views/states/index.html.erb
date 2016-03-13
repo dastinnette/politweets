@@ -1,9 +1,31 @@
+<br>
 <div class="container">
-  <h2 class="t-index-title">politweets</h2>
-  <p class="t-index-text">
-    the table below shows the tweet counts for each candidate - click
-    on a state to see what its residents are tweeting in real time
-  </p>
+  <div class="row">
+    <div class="col s4 center">
+      <h4 class="t-index-title">bernie tweets</h4>
+    </div>
+    <div class="col s4 center">
+      <h4 class="t-index-title">trump tweets</h4>
+    </div>
+    <div class="col s4 center">
+      <h4 class="t-index-title">america's champ</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s4 center numbers">
+      <%= number_with_delimiter(Tweet.where(hashtag_id: 1).count,
+                                :delimiter => ',') %>
+    </div>
+    <div class="col s4 center numbers">
+      <%= number_with_delimiter(Tweet.where(hashtag_id: 2).count,
+                                :delimiter => ',') %>
+    </div>
+    <div class="col s4 center numbers">
+      <%= TweetCalculator.national_winner %>
+    </div>
+  </div>
+
 </div>
 
 <div class="container">

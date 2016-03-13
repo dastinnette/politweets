@@ -8,6 +8,16 @@ class TweetCalculator
     count
   end
 
+  def self.national_winner
+    bernie = Tweet.where(hashtag_id: 1).count
+    trump  = Tweet.where(hashtag_id: 2).count
+    if bernie < trump
+      "trump"
+    else
+      "bernie"
+    end
+  end
+
   def self.bernie_by_state(state)
     if count_tweets[state][1].nil?
       0
@@ -29,10 +39,10 @@ class TweetCalculator
     trump  = trump_by_state(state)
     if bernie < trump
       margin = trump/(bernie + trump).to_f * 100.0
-      "Trump - #{margin.round(1)}%"
+      "trump - #{margin.round(1)}%"
     else
       margin = bernie/(bernie + trump).to_f * 100.0
-      "Bernie - #{margin.round(1)}%"
+      "bernie - #{margin.round(1)}%"
     end
   end
 

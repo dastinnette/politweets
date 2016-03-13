@@ -3,6 +3,15 @@ require "rails_helper"
 RSpec.describe TweetCalculator, type: :model do
 
   describe "Tweet Calculator testing" do
+    it "properly counts bernie tweets nationally" do
+      create_hashtags
+      create_tweets
+
+      output = TweetCalculator.national_winner
+
+      expect(output).to eq("trump")
+    end
+
     it "properly counts bernie tweets by state" do
       create_hashtags
       create_tweets_with_states
@@ -27,7 +36,7 @@ RSpec.describe TweetCalculator, type: :model do
 
       output = TweetCalculator.winning_margin("IL")
 
-      expect(output).to eq("Trump - 66.7%")
+      expect(output).to eq("trump - 66.7%")
     end
 
     it "properly calculates a bernie winner" do
@@ -36,7 +45,7 @@ RSpec.describe TweetCalculator, type: :model do
 
       output = TweetCalculator.winning_margin("IL")
 
-      expect(output).to eq("Bernie - 66.7%")
+      expect(output).to eq("bernie - 66.7%")
     end
   end
 
