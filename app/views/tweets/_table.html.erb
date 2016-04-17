@@ -10,7 +10,6 @@
     </thead>
 
     <tbody>
-      <% cache("tweets-table") do %>
         <% TweetFormatter.state_codes.each do |state| %>
           <tr>
             <td>
@@ -19,17 +18,16 @@
                   class: "waves-effect waves-light btn indigo darken-2 width" %>
             </td>
             <td>
-              <%= TweetCalculator.bernie_by_state(state) %>
+              <%= @tweet_calculator.bernie_by_state(state) %>
             </td>
             <td>
-              <%= TweetCalculator.trump_by_state(state) %>
+              <%= @tweet_calculator.trump_by_state(state) %>
             </td>
             <td>
-              <%= TweetCalculator.winning_margin(state) %>
+              <%= @tweet_calculator.winning_margin(state) %>
             </td>
           </tr>
         <% end %>
-      <% end %>
     </tbody>
   </table>
 </div>

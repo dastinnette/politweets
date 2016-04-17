@@ -16,7 +16,8 @@ RSpec.describe TweetCalculator, type: :model do
       create_hashtags
       create_tweets_with_states
 
-      output = TweetCalculator.bernie_by_state("IL")
+      tweet_calculator = TweetCalculator.new
+      output = tweet_calculator.bernie_by_state("IL")
 
       expect(output).to eq(1)
     end
@@ -25,7 +26,8 @@ RSpec.describe TweetCalculator, type: :model do
       create_hashtags
       create_tweets_with_states
 
-      output = TweetCalculator.trump_by_state("IL")
+      tweet_calculator = TweetCalculator.new
+      output = tweet_calculator.trump_by_state("IL")
 
       expect(output).to eq(2)
     end
@@ -34,7 +36,8 @@ RSpec.describe TweetCalculator, type: :model do
       create_hashtags
       create_tweets_with_states
 
-      output = TweetCalculator.winning_margin("IL")
+      tweet_calculator = TweetCalculator.new
+      output = tweet_calculator.winning_margin("IL")
 
       expect(output).to eq("trump - 66.7%")
     end
@@ -43,7 +46,8 @@ RSpec.describe TweetCalculator, type: :model do
       create_hashtags
       create_tweets_with_states2
 
-      output = TweetCalculator.winning_margin("IL")
+      tweet_calculator = TweetCalculator.new
+      output = tweet_calculator.winning_margin("IL")
 
       expect(output).to eq("bernie - 66.7%")
     end

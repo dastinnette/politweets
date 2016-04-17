@@ -6,8 +6,8 @@
 
   <div class="center">
     <%= pie_chart({
-      "Bernie" => TweetCalculator.bernie_by_state(State.state_hash.invert[@state.name]),
-      "Trump"  => TweetCalculator.trump_by_state(State.state_hash.invert[@state.name])
+      "Bernie" => @tweet_calculator.bernie_by_state(State.state_hash.invert[@state.name]),
+      "Trump"  => @tweet_calculator.trump_by_state(State.state_hash.invert[@state.name])
     }) %>
   </div>
   <br>

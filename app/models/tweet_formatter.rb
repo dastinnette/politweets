@@ -6,7 +6,7 @@ class TweetFormatter
       state = standardize_location(tweet)
       if state == nil
         tweet.destroy
-      else
+      elsif true
         tweet.update(state_code: state)
       end
     end

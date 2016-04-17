@@ -1,6 +1,11 @@
 class TweetCalculator
+  attr_reader :tweet_count
 
-  def self.count_tweets
+  def initialize
+    @tweet_count = count_tweets
+  end
+
+  def count_tweets
     state_tweets = Tweet.all.group_by(&:state_code)
     count = state_tweets.each do | key,  tweets|
       state_tweets[key] = tweets.group_by(&:hashtag_id)
@@ -18,23 +23,23 @@ class TweetCalculator
     end
   end
 
-  def self.bernie_by_state(state)
-    if count_tweets[state][1].nil?
+  def bernie_by_state(state)
+    if tweet_count[state][1].nil?
       0
     else
-      count_tweets[state][1].count
+      tweet_count[state][1].count
     end
   end
 
-  def self.trump_by_state(state)
-    if count_tweets[state][2].nil?
+  def trump_by_state(state)
+    if tweet_count[state][2].nil?
       0
     else
-      count_tweets[state][2].count
+      tweet_count[state][2].count
     end
   end
 
-  def self.winning_margin(state)
+  def winning_margin(state)
     bernie = bernie_by_state(state)
     trump  = trump_by_state(state)
     if bernie < trump
