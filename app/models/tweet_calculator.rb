@@ -7,8 +7,8 @@ class TweetCalculator
 
   def count_tweets
     state_tweets = Tweet.all.group_by(&:state_code)
-    count = state_tweets.each do | key,  tweets|
-      state_tweets[key] = tweets.group_by(&:hashtag_id)
+    count = state_tweets.each do |state, tweets|
+      state_tweets[state] = tweets.group_by(&:hashtag_id)
     end
     count
   end
